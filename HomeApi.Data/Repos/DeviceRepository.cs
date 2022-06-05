@@ -101,7 +101,7 @@ namespace HomeApi.Data.Repos
         {
             // Удаление из базы
             var entry = _context.Entry(device);
-            if (entry.State == EntityState.Detached)
+            if (entry.State != EntityState.Detached)
                 _context.Devices.Remove(device);
 
             // Сохранение изменений

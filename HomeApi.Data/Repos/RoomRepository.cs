@@ -95,7 +95,7 @@ namespace HomeApi.Data.Repos
         {
             // Удаление из базы
             var entry = _context.Entry(room);
-            if (entry.State == EntityState.Detached)
+            if (entry.State != EntityState.Detached)
                 _context.Rooms.Remove(room);
 
             // Сохранение изменений
